@@ -24,7 +24,7 @@ resource "aws_lambda_function" "example" {
 }
  
 resource "aws_iam_role" "iam_for_lambda" {
-  name = "iam_for_lambda"
+  name = "lambda_deploy_role"
  
   assume_role_policy = <<EOF
 {
