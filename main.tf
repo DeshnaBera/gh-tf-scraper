@@ -11,7 +11,7 @@ provider "aws" {
 }
  
 resource "aws_lambda_function" "example" {
-  function_name = "hello"
+  function_name = "lambda_hello"
  
   # The bucket name as created earlier with "aws s3api create-bucket"
   s3_bucket = var.s3_bucket
