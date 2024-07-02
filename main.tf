@@ -3,6 +3,7 @@ terraform {
     bucket = "tf-state-bucket0207"
     key    = "terraform.tfstate"
     region = "us-east-1"
+    dynamodb_table = "TfState"
   }
 }
 
