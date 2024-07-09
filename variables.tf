@@ -1,14 +1,9 @@
-variable "s3_bucket" {
-  description = "The name of the S3 bucket"
-  type        = string
-}
- 
-variable "s3_key" {
-  description = "The name of the ZIP file in the S3 bucket"
-  type        = string
+variable "region" {
+    description = "The AWS region to deploy to"
+    type = string
 }
 
-variable "lambda_handler" {
-  description = "The Lambda function handler name"
-  type        = string
+variable "environment" {
+    description = "The environment to deploy to"
+    type = string
 }

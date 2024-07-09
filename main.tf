@@ -8,38 +8,12 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
 }
  
-resource "aws_lambda_function" "example" {
-  function_name = "lambda_hello"
- 
-  # The bucket name as created earlier with "aws s3api create-bucket"
-  s3_bucket = var.s3_bucket
-  s3_key    = var.s3_key
- 
-  handler = var.lambda_handler
-  runtime = "python3.10"
- 
-  role = aws_iam_role.iam_for_lambda.arn
-}
- 
-resource "aws_iam_role" "iam_for_lambda" {
-  name = "lambda_deploy_role"
- 
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}
-EOF
+module "lambda" {
+  source              = "./modules/lambdas"
+  environment         = var.environment
+  lambdas             = var.lambda_functions
+  region              = var.region
 }
