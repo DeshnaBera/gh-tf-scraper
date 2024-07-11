@@ -14,6 +14,5 @@ provider "aws" {
 module "lambda" {
   source              = "./modules/lambdas"
   environment         = var.environment
-  lambdas             = var.lambda_functions
   region              = var.region
 }

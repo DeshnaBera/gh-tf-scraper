@@ -10,3 +10,8 @@ variable "lambda_functions" {
         s3_key              = string
     }))
 }
+
+variable "environment" {
+    description = "The Environment to deploy to"
+    type = string
+}
