@@ -1,5 +1,5 @@
 resource "aws_lambda_function" "lambda" {
-  for_each          = var.lambda_functions
+  for_each          = { for lambda in var.lambda_functions : lambda.function_name => lambda }
   function_name     = each.value.function_name
   s3_bucket         = each.value.s3_bucket_name
   s3_key            = each.value.s3_key
