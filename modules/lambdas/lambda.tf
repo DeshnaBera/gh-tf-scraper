@@ -12,7 +12,7 @@ resource "aws_lambda_function" "lambda" {
   }
 }
 resource "aws_iam_role" "lambda_role" {
-  for_each = var.lambda_functions
+  for_each = { for lambda in var.lambda_functions : lambda.function_name => lambda }
   name = "${each.value.function_name}_role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
