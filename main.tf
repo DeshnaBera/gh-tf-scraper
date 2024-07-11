@@ -15,4 +15,5 @@ module "lambda" {
   source              = "./modules/lambdas"
   environment         = var.environment
   region              = var.region
+  lambda_functions    = var.lambda_functions
 }

@@ -15,3 +15,8 @@ variable "environment" {
     description = "The Environment to deploy to"
     type = string
 }
+
+variable "region" {
+    description = "The AWS region to deploy to"
+    type = string
+}

@@ -7,8 +7,8 @@ resource "aws_lambda_function" "lambda" {
   runtime           = each.value.runtime
   timeout           = each.value.timeout
   role              = aws_iam_role.lambda_role[each.key].arn
-  environment_variables {
-    stage =  var.environment
+  environment {
+    variables = each.value.environment_variables
   }
 }
 resource "aws_iam_role" "lambda_role" {
